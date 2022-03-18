@@ -1,12 +1,13 @@
-import cors from 'cors';
-import express from 'express';
-import 'express-async-errors';
 import 'reflect-metadata';
-import './database';
-import { router } from './routes';
+import 'express-async-errors';
+import express from 'express';
+import cors from 'cors';
+import createConnection from "./database";
 import './shared/container';
+import { router } from './routes';
 import { AppError } from './shared/errors/AppError';
 
+createConnection();
 const app = express();
 
 app.use(cors());

@@ -92,7 +92,6 @@ describe("Get statement operation", () => {
       }
       await inMemoryUsersRepository.create(user);
       const createdUser = await inMemoryUsersRepository.findByEmail(user.email);
-      console.log(createdUser)
       await getStatementOperationUseCase.execute({ user_id: createdUser?.id as string, statement_id: "nonexisting statement" })
     }).rejects.toBeInstanceOf(GetStatementOperationError.StatementNotFound);
   })
