@@ -7,6 +7,7 @@ import { GetBalanceError } from "./GetBalanceError";
 
 interface IRequest {
   user_id: string;
+  receiver_id:string;
 }
 
 interface IResponse {
@@ -24,7 +25,7 @@ export class GetBalanceUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute({ user_id }: IRequest): Promise<IResponse> {
+  async execute({ user_id, receiver_id}: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findById(user_id);
 
     if(!user) {

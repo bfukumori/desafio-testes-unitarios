@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM node:16.14.0
+FROM node
 
-WORKDIR /app
+WORKDIR /usr/app
 
 COPY ["package.json", "./"]
 
